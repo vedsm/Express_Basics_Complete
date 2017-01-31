@@ -5,13 +5,13 @@
 		<h1>All Blogs</h1>
 
 		<% for(var blogs in allBlogs) { %>
-			<li><%= allBlogs[blogs].content %></li>
+			<li>"<%= allBlogs[blogs].content %>" by <%= allBlogs[blogs].name %> on <%= allBlogs[blogs].date %></li>
 		<% }; %>
 
 		<h2>All Users</h2>
 
 		<% for(var user in allUsers) { %>
-			<li><%= allUsers[user].name %> : <%= allUsers[user].about %></li>
+			<li><a href="/users/profile?name=<%= allUsers[user].name %>"><%= allUsers[user].name %></a> : <%= allUsers[user].about %></li>
 		<% }; %>
 
 

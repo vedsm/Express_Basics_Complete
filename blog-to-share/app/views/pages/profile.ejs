@@ -1,0 +1,12 @@
+<html lang='en'>
+	<head>
+	</head>
+	<body>
+		<h1>Profile of <%= name %></h1>
+
+		<% for(var blog in blogs) { %>
+			<li><%= blogs[blog].content %> on <%= blogs[blog].date %></li>
+		<% }; %>
+
+	</body>
+</html>

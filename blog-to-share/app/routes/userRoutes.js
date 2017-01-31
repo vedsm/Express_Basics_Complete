@@ -29,7 +29,24 @@ module.exports = function(userRouter,databaseFile){
 			}
 			fs.writeFileSync(databaseFile,JSON.stringify(databaseData));
 
-			res.json({success:true});
+			res.redirect('/users/profile?name='+name);
+		}
+	})
+
+	userRouter.get('/profile',function(req,res){
+		var name = req.query.name;
+
+		console.log("fetching profile of->",name);
+
+		var databaseData = JSON.parse(fs.readFileSync(databaseFile));
+		if(databaseData.hasOwnProperty(name)){
+			res.render('pages/profile',{
+				name:name,
+				blogs:databaseData[name].blogs
+			})
+		}
+		else{
+			res.json({success:false,message:"no user found"});
 		}
 	})
 }

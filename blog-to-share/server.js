@@ -17,7 +17,10 @@ var databaseFile = "./database.json";
 	userName : {
 		password:"supersecure",
 		about:"I am sexy and I know it",
-		blogs:[{},{},{},...]
+		blogs:[{
+			content:"abcd",
+			date:""
+		},{},{},...]
 	}
 */
 

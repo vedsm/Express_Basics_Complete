@@ -13,7 +13,12 @@ module.exports = function(blogRouter,databaseFile){
 				about:databaseData[userName].about
 			})
 			for(var blog in databaseData[userName].blogs){
-				allBlogs.push(databaseData[userName].blogs[blog]);				
+				// allBlogs.push(databaseData[userName].blogs[blog]);
+				allBlogs.push({
+					name:userName,
+					content:databaseData[userName].blogs[blog].content,
+					date:databaseData[userName].blogs[blog].date
+				})				
 			}
 		}
 
@@ -42,7 +47,8 @@ module.exports = function(blogRouter,databaseFile){
 					date:date.toString()
 				});
 				fs.writeFileSync(databaseFile,JSON.stringify(databaseData));
-				res.json({success:true});
+				// res.json({success:true});
+				res.redirect('/users/profile?name='+name);
 			}
 			else{
 				res.json({success:false, message:"password does not match"});
