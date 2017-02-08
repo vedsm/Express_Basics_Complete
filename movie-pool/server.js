@@ -86,3 +86,5 @@ app.route("/movies/:name")
 
 app.listen(port);
 console.log("the app is running just fine");
+
+module.exports = app;
